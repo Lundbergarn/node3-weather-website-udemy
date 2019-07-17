@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         const location = searchInput.value;
 
+        output1.textContent = 'Loading...';
+        output2.textContent = '';
+
         fetch('/weather?address=' + location)
             .then(( response ) => { response.json()
             .then(( data ) => {
@@ -18,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
                 else
                 {
-                    output1.innerHTML = data.location;
-                    output2.innerHTML = data.forecast;
+                    output1.textContent = data.location;
+                    output2.textContent = data.forecast;
                 };
             });
         });
